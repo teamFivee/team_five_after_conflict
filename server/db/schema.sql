@@ -16,7 +16,6 @@ CREATE TABLE user (
   balance int (8),
   img varchar(255),
   password varchar(255)
-
 );
 
 

@@ -8,7 +8,8 @@ export default class SignUp extends React.Component{
         this.state={
             userName:'',
             Email:'',
-            password:''
+            password:'',
+            balance:''
         }
         this.username=this.username.bind(this)
         this.email=this.email.bind(this)
@@ -18,6 +19,8 @@ export default class SignUp extends React.Component{
     username(e){this.setState({userName:e.target.value})}
     email(e){this.setState({Email:e.target.value})}
     password(e){this.setState({password:e.target.value})}
+    password(e){this.setState({balance:e.target.value})}
+
     singnup(){
         const userName=this.state.userName
         const Email=this.state.Email
@@ -34,6 +37,8 @@ export default class SignUp extends React.Component{
             <label htmlFor="">username<br /><input type="name" onChange={this.username} /></label><br />
             <label htmlFor="">email<br /><input type="email" onChange={this.email}/></label><br />
             <label htmlFor="">password<br /><input type="password" onChange={this.password}/></label><br />
+            <label htmlFor="">balance<br /><input type="balance" onChange={this.balance}/></label><br />
+
             <button onClick={this.singnup}>signup</button>
             
         </div>
