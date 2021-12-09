@@ -18,7 +18,7 @@ router.route("/")
         else{
 
             
-            var salt =result[0].img
+            var salt =result[0].salt
             var savedPw=result[0].password
             let shasum = crypto.createHash('sha256');
             shasum.update(password + salt);
