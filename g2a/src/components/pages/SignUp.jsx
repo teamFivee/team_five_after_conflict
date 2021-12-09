@@ -8,8 +8,9 @@ export default class SignUp extends React.Component{
         this.state={
             userName:'',
             Email:'',
+            balance:500,
             password:'',
-            balance:''
+            // balance:''
         }
         this.username=this.username.bind(this)
         this.email=this.email.bind(this)
@@ -19,13 +20,13 @@ export default class SignUp extends React.Component{
     username(e){this.setState({userName:e.target.value})}
     email(e){this.setState({Email:e.target.value})}
     password(e){this.setState({password:e.target.value})}
-    password(e){this.setState({balance:e.target.value})}
 
     singnup(){
         const userName=this.state.userName
         const Email=this.state.Email
+        const balance = this.state.balance;
         const password=this.state.password
-        axios.post('http://localhost:5000/api/signup',{userName,Email,password}).then(response=>{
+        axios.post('http://localhost:5000/api/signup',{userName,Email,balance,password}).then(response=>{
             console.log(response)
         }).catch(err=>{
             console.log(err)
@@ -37,10 +38,8 @@ export default class SignUp extends React.Component{
             <label htmlFor="">username<br /><input type="name" onChange={this.username} /></label><br />
             <label htmlFor="">email<br /><input type="email" onChange={this.email}/></label><br />
             <label htmlFor="">password<br /><input type="password" onChange={this.password}/></label><br />
-            <label htmlFor="">balance<br /><input type="balance" onChange={this.balance}/></label><br />
-
-            <button onClick={this.singnup}>signup</button>
-            
+<button onClick={this.singnup}>signup</button>
+             
         </div>
         )
     }

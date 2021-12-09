@@ -30,11 +30,11 @@ seq
       type: Sequelize.DataTypes.INTEGER,
       primaryKey: true,
       allowNull: false,
-      autoIncrement: true
+      autoIncrement: true 
     },
     usersName: {type : Sequelize.STRING  },
     Email : {type : Sequelize.STRING},
-    balance : {type :Sequelize.INTEGER},
+    balance : {type :Sequelize.INTEGER, defaultValue:0},
     salt : {type : Sequelize.STRING},
     password : {type : Sequelize.STRING}
   });
