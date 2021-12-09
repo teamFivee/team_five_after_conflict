@@ -1,7 +1,7 @@
 var express = require("express");
 var db = require('../db/index')
 const crypto = require('crypto');
-
+ 
 var router = express.Router();
 
 router.route("/")
@@ -9,7 +9,7 @@ router.route("/")
 .post((req,res)=>{
     var {userName , password}=req.body
 
-    db.query("select *  from user where userName=?",[userName],(err,result)=>{
+    db.query("select *  from users where usersName=?",[userName],(err,result)=>{
         // console.log(result[0].password);
         // console.log(result[0].img);
           
@@ -18,7 +18,7 @@ router.route("/")
         else{
 
             
-            var salt =result[0].img
+            var salt =result[0].salt
             var savedPw=result[0].password
             let shasum = crypto.createHash('sha256');
             shasum.update(password + salt);
