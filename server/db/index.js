@@ -36,6 +36,7 @@ seq
     Email : {type : Sequelize.STRING},
     balance : {type :Sequelize.INTEGER, defaultValue:0},
     salt : {type : Sequelize.STRING},
+    img : {type : Sequelize.STRING},
     password : {type : Sequelize.STRING}
   });
 
