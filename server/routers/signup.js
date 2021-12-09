@@ -7,7 +7,7 @@ var router = express.Router();
 router.route("/")
 
 .post((req,res)=>{
-    var {userName ,Email ,balance ,img , password}=req.body
+    var {userName ,Email ,balance , password}=req.body
 
     db.query("select userId from user where userName=?",[userName],(err,result)=>{
         console.log(result);
@@ -21,7 +21,7 @@ router.route("/")
             let shasum = crypto.createHash('sha256');
             shasum.update(password + salt);
             var hashedPw= shasum.digest('hex');
-            db.query("insert into user   (userName ,Email ,balance ,img , password ) values (? , ?,?,?,?)",[userName ,Email ,balance ,salt , hashedPw], (err,data)=>{
+            db.query("insert into user   (userName ,Email ,balance ,salt , password ) values (? , ?,?,?,?)",[userName ,Email ,balance ,salt , hashedPw], (err,data)=>{
                 res.json(data)
             })
 

@@ -2,6 +2,7 @@ const mysql = require('mysql2');
 
 const Promise = require('bluebird');
 const database = 'greenfield';
+var seq = require("sequelize")
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -31,7 +32,7 @@ seq
     usersName: {type : Sequelize.STRING  },
     Email : {type : Sequelize.STRING},
     balance : {type :Sequelize.INTEGER},
-    img : {type : Sequelize.STRING},
+    salt : {type : Sequelize.STRING},
     password : {type : Sequelize.STRING}
   });
      
