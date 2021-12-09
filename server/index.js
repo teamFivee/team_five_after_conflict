@@ -1,7 +1,11 @@
 var express = require('express');
 var app = express();
 var port = process.env.PORT ||5000;
-
+// cloudinary.config({ 
+//     cloud_name: 'g2a2', 
+//     api_key: '276999152158912', 
+//     api_secret: 'Z-1KSzkWvVNoiYpPLkeleQrEEfI' 
+//   });
 var cors = require('cors');
 var router1 = require('./routers/router1')
 var signupRouter=require('./routers/signup.js')

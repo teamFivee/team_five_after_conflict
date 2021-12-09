@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
 var seq = new Sequelize(database,"root","root",{dialect: 'mysql'});
 
 seq
-  .authenticate()
+  .authenticate() 
   .then(() => {
     console.log("authenticate successed");
   })
@@ -56,7 +56,7 @@ seq
     console.log(data);
   }).catch(err => { console.log(err)})
 
-  user.sync({alter : true}).then(data=>{
+  user.sync({alter : true}).then(data=>{ 
     console.log(data);
   }).catch(err => { console.log(err)})
 
