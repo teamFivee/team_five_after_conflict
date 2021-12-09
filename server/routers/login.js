@@ -7,7 +7,7 @@ var router = express.Router();
 router.route("/")
 
 .post((req,res)=>{
-    var {userName , password}=req.body
+    var {userName , password}=req.body 
 
     db.query("select *  from users where usersName=?",[userName],(err,result)=>{
         // console.log(result[0].password);

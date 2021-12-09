@@ -2,7 +2,7 @@ const mysql = require('mysql2');
 
 const Promise = require('bluebird');
 const database = 'greenfield';
-var Sequelize = require('sequelize');
+var Sequelize = require('sequelize'); 
 
 const connection = mysql.createConnection({
   host: 'localhost',
