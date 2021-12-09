@@ -1,18 +1,14 @@
-const mysql = require("mysql");
-var Sequelize = require("sequelize");
+const mysql = require('mysql2');
 
-const Promise = require("bluebird");
-const database = "greenfield";
+const Promise = require('bluebird');
+const database = 'greenfield';
 
 const connection = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: database,
-});
+  host: 'localhost',
+  user: 'root',
+  password: 'root',
+  database: database
 
-var seq = new Sequelize(database, "root", "root", {
-  dialect: "mysql",
 });
 
 seq
