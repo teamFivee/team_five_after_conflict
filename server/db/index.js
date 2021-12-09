@@ -38,10 +38,11 @@ seq
     img : {type : Sequelize.STRING},
     password : {type : Sequelize.STRING}
   });
+     
   user.sync({alter : true}).then(data=>{
     console.log(data);
   }).catch(err => { console.log(err)})
 
 
 
-module.exports = user;
+module.exports = connection;
