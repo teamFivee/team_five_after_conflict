@@ -6,13 +6,13 @@ var router = express.Router();
 
 router.route("/")
  
-.post((req,res)=>{
-    var {userName ,Email ,balance , password}=req.body
+.post((req,res)=>{   
+    var {userName,Email,balance,password}=req.body
 
-    db.query("select usersId from users where usersName=?",[userName],(err,result)=>{
+    db.query("select userId from users where usersName=?",[userName],(err,result)=>{
         console.log(result);
-        
-        if (result.length!==0){res.json("user already exist")} 
+        console.log(req.body)
+        if (result.length!==0){result.json("user already exist")} 
         
         else{
 
