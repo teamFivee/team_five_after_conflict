@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+// const { cloudinary } = require('./cloudinary')
 var port = process.env.PORT ||5000;
 // cloudinary.config({ 
 //     cloud_name: 'g2a2', 
