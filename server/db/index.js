@@ -23,7 +23,7 @@ seq
   .catch(() => {
     console.log("authenticate failed");
   });
-
+          
 
   var user = seq.define("user", {
     userId: {
@@ -36,7 +36,7 @@ seq
     Email : {type : Sequelize.STRING},
     balance : {type :Sequelize.INTEGER, defaultValue:0},
     salt : {type : Sequelize.STRING},
-    img:{type:Sequelize.STRING},
+    img : {type : Sequelize.STRING},
     password : {type : Sequelize.STRING}
   });
 
@@ -48,10 +48,13 @@ seq
       autoIncrement: true
     },     
     gameName: {type : Sequelize.STRING  },
-    price : {type : Sequelize.INTEGER},
+    price : {type : Sequelize.INTEGER}, 
     img : {type :Sequelize.STRING},
-    userName : {type : Sequelize.INTEGER}
+    owner : {type : Sequelize.STRING} 
   });
+  
+  game.hasOne(user);
+ 
   
   game.sync({alter : true}).then(data=>{
     console.log(data);
@@ -60,6 +63,7 @@ seq
   user.sync({alter : true}).then(data=>{ 
     console.log(data);
   }).catch(err => { console.log(err)})
+
 
 
 
