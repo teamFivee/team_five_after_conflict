@@ -67,4 +67,4 @@ seq
 
 
 
-module.exports = game;
+module.exports = connection;
