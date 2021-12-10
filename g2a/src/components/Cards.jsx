@@ -17,7 +17,9 @@ function Cards() {
         console.log(games ,"hooks data")
         
     }).catch(err=>{console.log(err);})
-    }
+
+},[])
+/////check redering after addin a game
 
     return (
         <div className="cards">
