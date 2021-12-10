@@ -18,7 +18,7 @@ function Cards() {
         
     }).catch(err=>{console.log(err);})
 
-},[])
+}
 /////check redering after addin a game
 
     return (
@@ -30,7 +30,7 @@ function Cards() {
 
      {games.map((game,i)=>{
 
-         if(i%3===0)
+   
           return( <ul className="cards__items">
           <CardItem
               src={game.img}
@@ -38,27 +38,9 @@ function Cards() {
               label={game.price}
               path="/services"
           />
-             <CardItem
-              src={game.img}
-              text={game.gameName}
-              label={game.price}
-              path="/services"
-          />
-             <CardItem
-              src={game.img}
-              text={game.gameName}
-              label={game.price}
-              path="/services"
-          />
+
       </ul>)
-      return (<ul className="cards__items">
-      <CardItem
-          src={game.img}
-          text={game.gameName}
-          label={game.price}
-          path="/services"
-      />
-  </ul>)
+
      })}
                     <ul className="cards__items">
                         <CardItem

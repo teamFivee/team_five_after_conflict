@@ -7,6 +7,7 @@ var router1 = require('./routers/router1')
 var signupRouter=require('./routers/signup.js')
 var loginRouter=require('./routers/login')
 var gamesRouter = require('./routers/games.js')
+var productsRouter = require('./routers/products.js')
 var db = require('./db/index.js')
 app.use(cors());
 app.use(express.json());
@@ -14,7 +15,7 @@ app.use(express.urlencoded({extended:true}));
 app.use("/api/games",gamesRouter);
 app.use('/api/signup', signupRouter);
 app.use('/api/login', loginRouter);
-
+app.use('/api/products', productsRouter);
 app.use("/rout1",router1)
 
 app.get("/hello",(req,res)=>{
