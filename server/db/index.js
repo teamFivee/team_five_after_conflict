@@ -23,7 +23,7 @@ seq
   .catch(() => {
     console.log("authenticate failed");
   });
-
+          
 
   var user = seq.define("user", {
     userId: {
@@ -48,10 +48,13 @@ seq
       autoIncrement: true
     },
     gameName: {type : Sequelize.STRING  },
-    price : {type : Sequelize.INTEGER},
+    price : {type : Sequelize.INTEGER}, 
     img : {type :Sequelize.STRING},
-    userName : {type : Sequelize.INTEGER}
+    owner : {type : Sequelize.STRING} 
   });
+  
+  game.hasOne(user);
+ 
   
   game.sync({alter : true}).then(data=>{
     console.log(data);
@@ -63,4 +66,5 @@ seq
 
 
 
-module.exports = connection;
+
+module.exports = game;
