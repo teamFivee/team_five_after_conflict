@@ -1,8 +1,8 @@
-const mysql = require('mysql2');
+const mysql = require('mysql2'); 
 
 const Promise = require('bluebird');
 const database = 'greenfield';
-var Sequelize = require('sequelize'); 
+var Sequelize = require('sequelize');  
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -16,7 +16,7 @@ const connection = mysql.createConnection({
 var seq = new Sequelize(database,"root","root",{dialect: 'mysql'});
 
 seq
-  .authenticate()
+  .authenticate() 
   .then(() => {
     console.log("authenticate successed");
   })
@@ -46,7 +46,7 @@ seq
       primaryKey: true,
       allowNull: false,
       autoIncrement: true
-    },
+    },     
     gameName: {type : Sequelize.STRING  },
     price : {type : Sequelize.INTEGER}, 
     img : {type :Sequelize.STRING},
@@ -60,7 +60,7 @@ seq
     console.log(data);
   }).catch(err => { console.log(err)})
 
-  user.sync({alter : true}).then(data=>{
+  user.sync({alter : true}).then(data=>{ 
     console.log(data);
   }).catch(err => { console.log(err)})
 
