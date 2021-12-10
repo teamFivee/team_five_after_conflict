@@ -8,12 +8,16 @@ function Cards() {
   
     var [games,setdata] = useState([]);
 
-    useEffect(()=>{axios.get("http://localhost:5000/api/games").then(({data})=>{
+    useEffect(()=>{fetchdata();} ,[])
+
+    var fetchdata=()=>{
+        axios.get("http://localhost:5000/api/games").then(({data})=>{
        
         setdata(data)
         console.log(games ,"hooks data")
         
-    }).catch(err=>{console.log(err);})})
+    }).catch(err=>{console.log(err);})
+    }
 
     return (
         <div className="cards">
