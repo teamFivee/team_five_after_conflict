@@ -5,11 +5,16 @@ function CardItem(props) {
     return (
         <>
             <li className="cards__item">
+          
                 <Link className="cards__item__link" to={props.path}>
+                <img src={props.src2} className="profile"/>
+                <h3>{props.user}</h3>
                     <figure
                         className="cards__item__pic-wrap"
-                        data-category={props.label}
-                    >
+                        data-category={props.label+"  DT"}
+                        
+                    > 
+
                         <img
                             className="cards__item__img"
                             alt="Travel Image"
@@ -20,6 +25,8 @@ function CardItem(props) {
                         <h5 className="cards__item__text">{props.text}</h5>
                     </div>
                 </Link>
+
+                <button> buy now </button>
             </li>
         </>
     );

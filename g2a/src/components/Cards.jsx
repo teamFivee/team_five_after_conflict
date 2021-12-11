@@ -8,14 +8,17 @@ function Cards() {
   
     var [games,setdata] = useState([]);
 
-    useEffect(()=>{axios.get("http://localhost:5000/api/games").then(({data})=>{
+    useEffect(()=>{fetchdata();} ,[])
+
+    var fetchdata=()=>{
+        axios.get("http://localhost:5000/api/games").then(({data})=>{
        
         setdata(data)
         console.log(games ,"hooks data")
         
     }).catch(err=>{console.log(err);})
 
-},[])
+}
 /////check redering after addin a game
 
     return (
@@ -27,7 +30,7 @@ function Cards() {
 
      {games.map((game,i)=>{
 
-         if(i%3===0)
+   
           return( <ul className="cards__items">
           <CardItem
               src={game.img}
@@ -35,27 +38,9 @@ function Cards() {
               label={game.price}
               path="/services"
           />
-             <CardItem
-              src={game.img}
-              text={game.gameName}
-              label={game.price}
-              path="/services"
-          />
-             <CardItem
-              src={game.img}
-              text={game.gameName}
-              label={game.price}
-              path="/services"
-          />
+
       </ul>)
-      return (<ul className="cards__items">
-      <CardItem
-          src={game.img}
-          text={game.gameName}
-          label={game.price}
-          path="/services"
-      />
-  </ul>)
+
      })}
                     <ul className="cards__items">
                         <CardItem

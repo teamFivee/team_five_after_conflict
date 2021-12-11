@@ -84,7 +84,11 @@ h1 {
     object-fit: cover;
     transition: all 0.2s linear;
 }
-
+.profile{
+    height: 80px;
+    width: 80px;
+    border-radius: 3pc;
+}
 .cards__item__img:hover {
     transform: scale(1.1);
 }
