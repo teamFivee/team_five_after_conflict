@@ -26,7 +26,7 @@ function CardItem(props) {
                     </div>
                 </Link>
 
-                <button> buy now </button>
+                
             </li>
         </>
     );

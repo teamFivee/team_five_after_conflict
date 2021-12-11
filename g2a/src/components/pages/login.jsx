@@ -9,8 +9,7 @@ export default class Login extends React.Component{
         userName:'',
         password:''
         }
-    this.useranme=this.username.bind(this)
-    this.password=this.password.bind(this)
+
     this.login=this.login.bind(this)
     }
     username(e){
@@ -22,8 +21,11 @@ export default class Login extends React.Component{
     login(){
         const userName=this.state.userName
         const password=this.state.password
+   
         axios.post('http://localhost:5000/api/login',{userName,password}).then(res=>{
             console.log(res)
+            localStorage.setItem("session", JSON.stringify(res.data))
+        
         }).catch(err=>{
             console.log(err)
         })
@@ -33,8 +35,8 @@ export default class Login extends React.Component{
     render(){
         return(
       <div>
-         <label htmlFor="">username<input type="text" onChange={this.username}/></label> 
-         <label htmlFor="">password <input type="password" onChange={this.password}/></label>
+         <label htmlFor="">username<input type="text" onChange={this.username.bind(this)}/></label> 
+         <label htmlFor="">password <input type="password" onChange={this.password.bind(this)}/></label>
          <button onClick={this.login}>login</button>
       </div>
         )
