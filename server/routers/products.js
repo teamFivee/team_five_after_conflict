@@ -29,7 +29,7 @@ router.route("/transaction")
         }
         else
         {
-            console.log(data)
+            res.send(data)
         }
     })
 
