@@ -9,7 +9,7 @@ router.route("/")
 .post((req,res)=>{
     var {userName , password}=req.body 
 
-    db.query("select *  from users where usersName=?",[userName],(err,result)=>{
+    db.query("select *  from users where userName=?",[userName],(err,result)=>{
         // console.log(result[0].password);
         // console.log(result[0].img);
           
@@ -23,7 +23,7 @@ router.route("/")
             let shasum = crypto.createHash('sha256');
             shasum.update(password + salt);
             var hashedPw= shasum.digest('hex');
-            if(hashedPw===savedPw){res.json("matching")}
+            if(hashedPw===savedPw){res.json(result)}
             else {res.json("wrong password")}
            
            
