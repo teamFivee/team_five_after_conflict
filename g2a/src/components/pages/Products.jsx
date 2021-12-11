@@ -22,13 +22,18 @@ export default function Products() {
 
     return (<div className="parent" >
        
-{games.map((game,i)=><ul className="cards__items" > <CardItem
+{games.map((game,i)=><ul className="cards__items" >
+
+       <CardItem
             key={i}
              src={game.gimg}
+             user={game.userName}
               src2={game.img}
               text={game.gameName}
               label={game.price}
+              button={"BUY NOW"}
               path="/services"
-          /></ul> )}     
+          />
+          </ul> )}     
            </div>)
 }

@@ -14,6 +14,7 @@ CREATE TABLE users (
   userName varchar(255),
   Email varchar(255),
   balance int (8),
+  salt varchar(255),
   img varchar(255),
   password varchar(255)
 );
@@ -54,21 +55,21 @@ insert into users   (userName ,Email ,balance ,img , password ) values ("ghassen
 insert into users   (userName ,Email ,balance ,img , password ) values ("bilel mit7arech" , "bilel@gmail.com","500","https://bit.ly/3IvqGD6","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("foued" , "foued@gmail.com","500","https://bit.ly/31uMuhQ","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("donald trump" , "donald@gmail.com","500","https://bit.ly/3y2n72C","users");
-insert into users   (userName ,Email ,balance ,img , password ) values ("mr bean" , "bean@gmail.com","500","https://bit.ly/3EzJoHp","users");
+insert into users   (userName ,Email ,balance ,img , password ) values ("mr bean" , "bean@gmail.com","500","https://bit.ly/3EPbnmw","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("amir Hamemi" , "amir@gmail.com","500","https://bit.ly/3pvYBDf","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("amine jelassi" , "amine@gmail.com","500","https://bit.ly/3pCoSzw","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("ghassen tabebi" , "ghassen@gmail.com","500","https://bit.ly/3EzJ4IC","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("bilel mit7arech" , "bilel@gmail.com","500","https://bit.ly/3IvqGD6","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("foued" , "foued@gmail.com","500","https://bit.ly/31uMuhQ","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("donald trump" , "donald@gmail.com","500","https://bit.ly/3y2n72C","users");
-insert into users   (userName ,Email ,balance ,img , password ) values ("mr bean" , "bean@gmail.com","500","https://bit.ly/3EzJoHp","users");
+insert into users   (userName ,Email ,balance ,img , password ) values ("mr bean" , "bean@gmail.com","500","https://bit.ly/3EPbnmw","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("amir Hamemi" , "amir@gmail.com","500","https://bit.ly/3pvYBDf","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("amine jelassi" , "amine@gmail.com","500","https://bit.ly/3pCoSzw","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("ghassen tabebi" , "ghassen@gmail.com","500","https://bit.ly/3EzJ4IC","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("bilel mit7arech" , "bilel@gmail.com","500","https://bit.ly/3IvqGD6","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("foued" , "foued@gmail.com","500","https://bit.ly/31uMuhQ","users");
 insert into users   (userName ,Email ,balance ,img , password ) values ("donald trump" , "donald@gmail.com","500","https://bit.ly/3y2n72C","users");
-insert into users   (userName ,Email ,balance ,img , password ) values ("mr bean" , "bean@gmail.com","500","https://bit.ly/3EzJoHp","users");
+insert into users   (userName ,Email ,balance ,img , password ) values ("mr bean" , "bean@gmail.com","500","https://bit.ly/3EPbnmw","users");
 
 
 -- //////////////////////////////////////// game seeding /////////////////////////////////////////////////////
@@ -76,7 +77,7 @@ insert into users   (userName ,Email ,balance ,img , password ) values ("mr bean
 
 insert into games (gameName,price,img,owner) values ("battel field" ,200,"https://bit.ly/3pztWVt",1);
 insert into games (gameName,price,img,owner) values ("super mario" ,1,"https://bit.ly/3Dwb7HM",4);
-insert into games (gameName,price,img,owner) values ("" ,200,"https://bit.ly/3pztWVt",1);
+insert into games (gameName,price,img,owner) values ("hololo" ,200,"https://bit.ly/3pztWVt",1);
 insert into games (gameName,price,img,owner) values ("battel field" ,200,"https://bit.ly/3ovdFla",1);
 insert into games (gameName,price,img,owner) values ("battel field" ,200,"https://bit.ly/3ovdFla",1);
 insert into games (gameName,price,img,owner) values ("battel field" ,200,"https://bit.ly/3ovdFla",1);
