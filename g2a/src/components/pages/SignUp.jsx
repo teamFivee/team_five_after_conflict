@@ -14,7 +14,7 @@ export default class SignUp extends React.Component{
         this.email=this.email.bind(this)
         this.password=this.password.bind(this)
         this.singnup=this.singnup.bind(this)
-        this.uploadImage=this.uploadImage.bind(this)
+        // this.uploadImage=this.uploadImage.bind(this)
         
     }
     username(e){

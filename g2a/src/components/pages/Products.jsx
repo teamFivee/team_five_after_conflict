@@ -19,7 +19,15 @@ export default function Products() {
     }).catch(err=>{console.log(err)})
   }
 
-
+ var buy=(e)=>{
+    console.log(games[e.target.name] , "buttin")
+    var session = JSON.parse(localStorage.getItem("session"))[0]
+    console.log(session)
+    var seller = games[e.target.name]
+   
+    var trans = {buyer : session.userId , seller : seller.userId , game : seller.gameId}
+    axios.post("http://localhost:5000/api/products/transaction" , trans).then(({data})=>{console.log(data)}).catch(err=>{console.log(err)})
+ }
     return (<div className="parent" >
        
 {games.map((game,i)=><ul className="cards__items" >
@@ -34,6 +42,7 @@ export default function Products() {
               button={"BUY NOW"}
               path="/services"
           />
+          <button onClick={buy} name={i}  style={{width:100 , height : 50 , position: "absolute" ,marginLeft:140,marginTop:280 ,backgroundColor : "orange" }}>buy now</button>
           </ul> )}     
            </div>)
 }
