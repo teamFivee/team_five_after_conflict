@@ -1,6 +1,6 @@
 
 DROP database IF EXISTS greenfield ;
-CREATE DATABASE greenfield;
+CREATE DATABASE greenfield; 
 
 
 -- " to run this file type this command  "mysql -u root -p  < server/db/schema.sql"
