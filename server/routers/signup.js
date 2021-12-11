@@ -22,7 +22,7 @@ router.route("/")
             let shasum = crypto.createHash('sha256');
             shasum.update(password + salt);
             var hashedPw= shasum.digest('hex');
-            db.query("insert into users   (userName ,Email ,balance ,salt , password  ) values (? , ?,?,?,?)",[userName ,Email ,balance ,salt , hashedPw], (err,data)=>{
+            db.query("insert into users   (userName ,Email ,balance ,salt , password  ) values (? , ?,?,?,?)",[userName ,Email ,10000 ,salt , hashedPw], (err,data)=>{
                 res.json(data)
             })
 

@@ -20,13 +20,13 @@ export default function Products() {
   }
 
  var buy=(e)=>{
-    // console.log(games[e.target.name] , "buttin")
+    console.log(games[e.target.name] , "buttin")
     var session = JSON.parse(localStorage.getItem("session"))[0]
     // console.log(session)
     var seller = games[e.target.name]
    
-    var trans = {buyer : session.userId , seller : seller.userId , game : seller.gameId}
-    axios.post("http://localhost:5000/api/products/transaction" , trans).then(({data})=>{console.log(data)}).catch(err=>{console.log(err)})
+    var trans = {buyer : session.userId , seller : seller.userId , game : seller.gameId , price : seller.price}
+    axios.post("http://localhost:5000/api/products/buy" , trans).then((data)=>alert(data.data)).catch(err=>{console.log(err)})
  }
     return (<div className="parent" >
        
