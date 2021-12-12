@@ -8,7 +8,7 @@ function Cards() {
   
     var [games,setdata] = useState([]);
 
-    useEffect(()=>{fetchdata();} ,[])
+    useEffect(()=>fetchdata() ,[])
 
     var fetchdata=()=>{
         axios.get("http://localhost:5000/api/games").then(({data})=>{
@@ -19,6 +19,7 @@ function Cards() {
     }).catch(err=>{console.log(err);})
 
 }
+console.log(games, "DATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa");
 /////check redering after addin a game
 
     return (
