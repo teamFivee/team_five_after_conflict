@@ -1,28 +1,12 @@
 import axios from "axios";
-// import cloudinary from 'cloudinary'
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "../../App.css";
-function SignUp() {
-    var [user, setuser] = useState({});
-    var [imageSelected, setImageSelected] = useState("");
 
-    const uploadImage = () => {
-        const formData = new FormData();
-        formData.append("file", imageSelected);
-        formData.append("upload_preset", "lsom30en");
-        axios
-            .post(
-                "https://api.cloudinary.com/v1_1/ben-arous/image/upload",
-                formData
-            )
-            .then((res) => {
-                var x = user;
-                x.img = res.data.url;
-                setuser(x);
-                console.log(user);
-            });
-    };
+function Login() {
+    var [user, setuser] = useState({});
+    let history = useHistory();
+
     var handleChange = (e) => {
         var x = user;
         x[e.target.name] = e.target.value;
@@ -30,11 +14,17 @@ function SignUp() {
         setuser(x);
     };
 
-    var singnup = () => {
+    var login = () => {
         axios
-            .post("http://localhost:5000/api/signup", user)
-            .then((response) => {
-                console.log(response);
+            .post("http://localhost:5000/api/login", user)
+            .then((res) => {
+                console.log(res);
+                localStorage.setItem("session", JSON.stringify(res.data));
+                if (res.data !== "wrong username") {
+                    history.push("/");
+                } else {
+                    alert("Wrong user neme or password");
+                }
             })
             .catch((err) => {
                 console.log(err);
@@ -53,7 +43,7 @@ function SignUp() {
                             <div className="card-body p-5 text-center">
                                 <div className="mb-md-5 mt-md-4 pb-5">
                                     <h2 className="fw-bold mb-2 text-uppercase">
-                                        SignUp
+                                        Login
                                     </h2>
                                     <p className="text-white-50 mb-5">
                                         Please enter your userName and password!
@@ -61,7 +51,7 @@ function SignUp() {
                                     <div className="form-outline form-white mb-4">
                                         <input
                                             name="userName"
-                                            type="name"
+                                            type="text"
                                             onChange={handleChange}
                                             type="email"
                                             className="form-control form-control-lg"
@@ -72,21 +62,9 @@ function SignUp() {
                                     </div>
                                     <div className="form-outline form-white mb-4">
                                         <input
-                                            type="email"
-                                            id="typeEmailX"
-                                            className="form-control form-control-lg"
-                                        />
-                                        <label
-                                            className="form-label"
-                                            htmlFor="typeEmailX"
-                                        >
-                                            Email
-                                        </label>
-                                    </div>
-                                    <div className="form-outline form-white mb-4">
-                                        <input
                                             name="password"
                                             type="password"
+                                            onChange={handleChange}
                                             id="typePasswordX"
                                             className="form-control form-control-lg"
                                         />
@@ -97,25 +75,13 @@ function SignUp() {
                                             Password
                                         </label>
                                     </div>
-                                    <input
-                                        className="btn btn-secondary"
-                                        type="file"
-                                        onChange={(e) => {
-                                            setImageSelected(e.target.files[0]);
-                                        }}
-                                    />{" "}
-                                    <button
-                                        className="btn btn-outline-light btn-lg px-5"
-                                        onClick={uploadImage}
-                                    >
-                                        upload Image
-                                    </button>
+
                                     <button
                                         className="btn btn-outline-light btn-lg px-5"
                                         type="submit"
-                                        onClick={singnup}
+                                        onClick={login}
                                     >
-                                        Sign Up
+                                        Login
                                     </button>
                                 </div>
                                 <div>
@@ -124,6 +90,7 @@ function SignUp() {
                                         <a
                                             href="/sign-up"
                                             className="text-white-50 fw-bold"
+                                            onClick={login}
                                         >
                                             Sign Up
                                         </a>
@@ -138,4 +105,4 @@ function SignUp() {
     );
 }
 
-export default SignUp;
+export default Login;

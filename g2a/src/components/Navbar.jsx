@@ -33,7 +33,7 @@ function Navbar() {
                         className="navbar-logo"
                         onClick={closeMobileMenu}
                     >
-                        TTttt
+                        Team Five
                         <i class="fab fa-typo3" />
                     </Link>
                     <div className="menu-icon" onClick={handleClick}>
@@ -67,14 +67,13 @@ function Navbar() {
                                 Products
                             </Link>
                         </li>
-
-                        <li>
+                        <li className="nav-item">
                             <Link
-                                to="/sign-up"
-                                className="nav-links-mobile"
+                                to="/login"
+                                className="nav-links"
                                 onClick={closeMobileMenu}
                             >
-                                Sign Up
+                                LOGIN
                             </Link>
                         </li>
                     </ul>

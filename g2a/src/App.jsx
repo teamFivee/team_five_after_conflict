@@ -6,7 +6,7 @@ import Home from "./components/pages/Home.jsx";
 import Services from "./components/pages/Services.jsx";
 import Products from "./components/pages/Products.jsx";
 import SignUp from "./components/pages/SignUp.jsx";
-
+import Login from "./components/pages/login.jsx";
 function App() {
     return (
         <>
@@ -17,10 +17,11 @@ function App() {
                     <Route path="/services" component={Services} />
                     <Route path="/products" component={Products} />
                     <Route path="/sign-up" component={SignUp} />
+                    <Route path="/login"  component={Login} />
                 </Switch>
             </Router>
         </>
     );
 }
 
-export default App;
+export default App; 
