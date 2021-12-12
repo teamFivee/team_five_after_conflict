@@ -15,7 +15,19 @@ router.route("/")
  })
 })
 
+router.route("/add")
+.post((req,res)=>{
+    var {gameName,price,img,owner}=req.body
+    db.query("insert into games   (gameName ,price ,img ,owner ) values (? , ?,?,?)",[gameName ,price ,img ,owner], (err,data)=>{
+               
+        if(err){
+            res.send("error");
+        }
+        
+         res.send("game created successfully")
+     })
 
+    })
 
 
 module.exports = router;

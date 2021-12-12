@@ -25,9 +25,13 @@ function AddGame() {
      } 
 
 
-     // AddGame(){
-
-     // }
+   const  AddGame=()=>{
+        var id=JSON.parse(localStorage.getItem('session'))
+       console.log(id[0].userId);
+       axios.post('http://localhost:5000/api/games/add',{gameName:game.name, price:game.price,img:game.img,owner:id[0].userId}).then((data)=>{
+          console.log(data.data);
+       })
+     }
        
 
  return(
@@ -39,7 +43,7 @@ function AddGame() {
  <label> GameImage : </label>
  <input type="file" onChange={(e)=>{setImageSelected(e.target.files[0])}} />
  <button onClick={uploadImage}>upload Image</button>
- <button >Add New Game</button>
+ <button onClick={AddGame} >Add New Game</button>
  </div> )
 }
 
