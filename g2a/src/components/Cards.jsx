@@ -6,23 +6,30 @@ import axios from "axios";
 import ret from "bluebird/js/release/util";
 function Cards() {
   
-    var [games,setdata] = useState([]);
+    var [games,setgames] = useState([]);
 
-    useEffect(()=>{fetchdata();} ,[])
+    useEffect(()=>fetchdata() ,[])
 
     var fetchdata=()=>{
         axios.get("http://localhost:5000/api/games").then(({data})=>{
        
-        setdata(data)
-        console.log(games ,"hooks data")
+        setgames(data)
         
     }).catch(err=>{console.log(err);})
 
 }
 /////check redering after addin a game
 
+// useEffect(() => {
+//     console.log(games);
+//  }, [games]);
+
+
+
     return (
+      
         <div className="cards">
+              
             <h1>Check out these EPIC GAMES!</h1>
             <div className="cards__container">
                 <div className="cards__wrapper">
