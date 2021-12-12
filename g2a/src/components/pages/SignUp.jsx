@@ -1,10 +1,11 @@
 import axios from "axios";
 // import cloudinary from 'cloudinary'
 import React , {useState} from "react";
+import { useHistory } from "react-router-dom";
 import "../../App.css";
  function SignUp (){
         
-   
+     var history = useHistory();
      var [user , setuser] = useState({})
      var [imageSelected,setImageSelected]=useState("")
 
@@ -28,7 +29,14 @@ import "../../App.css";
     var singnup=()=>{
     
         axios.post('http://localhost:5000/api/signup',user).then(response=>{
+            if(response.data="user created successfully")
+            {
+            //   history.push("/login");
             console.log(response)
+            }
+            else{
+                 
+            }
         }).catch(err=>{
             console.log(err)
         })
