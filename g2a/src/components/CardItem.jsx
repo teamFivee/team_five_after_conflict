@@ -7,7 +7,7 @@ function CardItem(props) {
             <li className="cards__item">
           
                 <Link className="cards__item__link" to={props.path}>
-                <img src={props.src2} className="profile"/>
+                <img src={props.src2} className="profile" alt=''/>
                 <h3>{props.user}</h3>
                     <figure
                         className="cards__item__pic-wrap"
@@ -17,7 +17,7 @@ function CardItem(props) {
 
                         <img
                             className="cards__item__img"
-                            alt="Travel Image"
+                            alt="T"
                             src={props.src}
                         />
                     </figure>
