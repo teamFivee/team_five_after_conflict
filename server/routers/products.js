@@ -63,6 +63,23 @@ router.route("/buy")
 })
 
 
+router.route("/bascket/:id").get((req,res)=>{
+    var user = req.params.id
+  db.query(`select b.userName as buyer , b.balance as buyerBalance ,b.img as buyerImg , s.userName as seller ,s.img as sellerImg , g.gameId , g.gameName,g.price,g.img from (games g , users s , users b , transaction trans) where (trans.buyer = b.userId and trans.seller = s.userId and trans.game=g.gameId and b.userId = ${user}) ` , (err , bascket)=>{
+      if (err)
+      {
+        console.log(err)
+      }
+      else{
+          res.send(bascket)
+      }
+  } )
+      
+
+})
+
+
+
 
 
 module.exports = router;

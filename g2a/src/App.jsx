@@ -7,6 +7,7 @@ import Services from "./components/pages/Services.jsx";
 import Products from "./components/pages/Products.jsx";
 import SignUp from "./components/pages/SignUp.jsx";
 import Login from "./components/pages/login.jsx";
+import Panner from "./components/pages/panne.jsx" ;
 function App() {
     return (
         <>
@@ -14,10 +15,12 @@ function App() {
                 <Navbar />
                 <Switch>
                     <Route path="/" exact component={Home} />
+                    <Route path="/pannel"  component={Panner} />
                     <Route path="/services" component={Services} />
                     <Route path="/products" component={Products} />
                     <Route path="/sign-up" component={SignUp} />
                     <Route path="/login"  component={Login} />
+                    
                 </Switch>
             </Router>
         </>
