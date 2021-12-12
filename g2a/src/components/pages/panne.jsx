@@ -25,6 +25,17 @@ var getId=()=> {
    
     return (<div className="parent">
         
+  {panier.map((ele,i)=>
+        <ul>
+           <h4>{ele.buyer}</h4>
+         <img  src={ele.buyerImg}/>
+         <h4>{ele.gameName}</h4>
+         <img src={ele.img}/>
+         <h4>{ele.price}DT</h4>
+         <h4>{ele.seller}</h4>
+         <img src ={ele.sellerImg} />
+         </ul>
+  )}
         
     </div>);
 }

@@ -22,6 +22,11 @@ function App() {
                     <Route path='/addGame'  component={AddGame}/>
                     <Route path="/sign-up" component={SignUp} />
                     <Route path="/login"  component={Login} />
+<<<<<<< HEAD
+=======
+                    
+                    
+>>>>>>> 08e26cb968440efad38f1a45a4fb94aa2f10a213
                 </Switch>
             </Router>
         </>

@@ -34,8 +34,8 @@ function Navbar() {
                         className="navbar-logo"
                         onClick={closeMobileMenu}
                     >
-                        Team five 
-                        <i className="fab fa-typo3" />
+                        Team Five
+                        <i class="fab fa-typo3" />
                     </Link>
                     <li className="navbar-logo">
                             <Link
@@ -86,23 +86,10 @@ function Navbar() {
                                 LOGIN
                             </Link>
                         </li>
-
-                        <li>
-                            <Link
-                                to="/sign-up"
-                                className="nav-links-mobile"
-                                onClick={closeMobileMenu}
-                            >
-                                Sign Up
-                            </Link>
-                        </li>
-                        
-                        
                     </ul>
                     {button && (
                         <Button buttonStyle="btn--outline">SIGN UP</Button>
                     )}
-           
                 </div>
             </nav>
         </>
