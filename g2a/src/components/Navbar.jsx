@@ -33,8 +33,8 @@ function Navbar() {
                         className="navbar-logo"
                         onClick={closeMobileMenu}
                     >
-                        Name of website
-                        <i className="fab fa-typo3" />
+                        TTttt
+                        <i class="fab fa-typo3" />
                     </Link>
                     <div className="menu-icon" onClick={handleClick}>
                         <i className={click ? "fas fa-times" : "fas fa-bars"} />
