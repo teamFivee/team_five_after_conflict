@@ -23,7 +23,12 @@ router.route("/")
             shasum.update(password + salt);
             var hashedPw= shasum.digest('hex');
             db.query("insert into users   (userName ,Email ,balance ,salt , password ,img ) values (? , ?,?,?,?,?)",[userName ,Email ,10000 ,salt , hashedPw,img], (err,data)=>{
-                res.json(data)
+               
+               if(err){
+                   res.send("error");
+               }
+               
+                res.send("user created successfully")
             })
 
 

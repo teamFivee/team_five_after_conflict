@@ -51,11 +51,11 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <Link
-                                to="/services"
+                                to="/pannel"
                                 className="nav-links"
                                 onClick={closeMobileMenu}
                             >
-                                Services
+                               bascket
                             </Link>
                         </li>
                         <li className="nav-item">

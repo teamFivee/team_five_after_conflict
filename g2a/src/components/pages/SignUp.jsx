@@ -1,11 +1,13 @@
 import axios from "axios";
 // import cloudinary from 'cloudinary'
-import React, { useState } from "react";
-
+import React , {useState} from "react";
+import { useHistory } from "react-router-dom";
 import "../../App.css";
-function SignUp() {
-    var [user, setuser] = useState({});
-    var [imageSelected, setImageSelected] = useState("");
+ function SignUp (){
+        
+     var history = useHistory();
+     var [user , setuser] = useState({})
+     var [imageSelected,setImageSelected]=useState("")
 
     const uploadImage = () => {
         const formData = new FormData();
@@ -30,16 +32,21 @@ function SignUp() {
         setuser(x);
     };
 
-    var singnup = () => {
-        axios
-            .post("http://localhost:5000/api/signup", user)
-            .then((response) => {
-                console.log(response);
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
+    var singnup=()=>{
+    
+        axios.post('http://localhost:5000/api/signup',user).then(response=>{
+            if(response.data="user created successfully")
+            {
+            //   history.push("/login");
+            console.log(response)
+            }
+            else{
+                 
+            }
+        }).catch(err=>{
+            console.log(err)
+        })
+    }
 
     return (
         <section className="vh-100 gradient-custom">
