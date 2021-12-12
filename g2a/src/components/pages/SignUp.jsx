@@ -1,67 +1,60 @@
 import axios from "axios";
 // import cloudinary from 'cloudinary'
-import React from "react";
+import React , {useState} from "react";
+import { useHistory } from "react-router-dom";
 import "../../App.css";
-export default class SignUp extends React.Component{
-    constructor(){
-        super()
-        this.state={
-            userName:'',
-            Email:'',
-            password:'',
-            imageSelected:'',
-        }
-        this.username=this.username.bind(this)
-        this.email=this.email.bind(this)
-        this.password=this.password.bind(this)
-        this.singnup=this.singnup.bind(this)
-      
+ function SignUp (){
         
-    }
-    username(e){
-        console.log(e.target.value)
-        this.setState({userName:e.target.value})
-    }
-    email(e){this.setState({Email:e.target.value})}
-    password(e){this.setState({password:e.target.value})}
-    
-    
-   
-        // const [imageSelected,setImageSelected]=useState("")
-       uploadImage=() =>{
-       const formData= new FormData()
-       formData.append("file",imageSelected);
-       formData.append('upload_preset', 'lsom30en');
-       axios.post('https://api.cloudinary.com/v1_1/ben-arous/image/upload',formData).then((response)=>console.log(response))
-   
-     }
+     var history = useHistory();
+     var [user , setuser] = useState({})
+     var [imageSelected,setImageSelected]=useState("")
 
-    singnup(){
-        const userName=this.state.userName
-        const Email=this.state.Email
-     
-        const password=this.state.password
-        
-        axios.post('http://localhost:5000/api/signup',{userName,Email,password}).then(response=>{
+     const uploadImage=() =>{
+        const formData= new FormData()
+        formData.append("file",imageSelected);
+        formData.append('upload_preset', 'lsom30en');
+        axios.post('https://api.cloudinary.com/v1_1/ben-arous/image/upload',formData).then((res)=>{var x = user 
+       x.img=res.data.url
+       setuser(x)
+       console.log(user)
+       })
+    } 
+    var handleChange = (e)=>{
+        var x = user ;
+        x[e.target.name]=e.target.value;
+        console.log(x)
+        setuser(x);
+    } 
+
+    var singnup=()=>{
+    
+        axios.post('http://localhost:5000/api/signup',user).then(response=>{
+            if(response.data="user created successfully")
+            {
+            //   history.push("/login");
             console.log(response)
+            }
+            else{
+                 
+            }
         }).catch(err=>{
             console.log(err)
         })
     }
 
-    render(){
         return(
         <div>
-            <label htmlFor="">username<br /><input type="name" onChange={this.username} /></label><br />
-            <label htmlFor="">email<br /><input type="email" onChange={this.email}/></label><br />
-            <label htmlFor="">password<br /><input type="password" onChange={this.password}/></label><br />
-            <label htmlFor="">image <input type="file" name="image" onChange={event=>{
-             this.uploadImage(event.target.files)
-            }} /></label>
-        
-            <button onClick={this.singnup}>signup</button>
+            <label htmlFor="">username<br /><input name ="userName" type="name" onChange={handleChange} /></label><br />
+            <label htmlFor="">email<br /><input name="Email" type="email" onChange={handleChange}/></label><br />
+            <label htmlFor="">password<br /><input name="password" type="password" onChange={handleChange}/></label><br />
+            <input type="file" onChange={(e)=>{setImageSelected(e.target.files[0])}} />
+    <button onClick={uploadImage}>upload Image</button>        
+            <button onClick={singnup}>signup</button>
         </div>
         )
-    }
+    
 }
              
+
+
+export default SignUp;

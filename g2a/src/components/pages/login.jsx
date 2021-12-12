@@ -1,44 +1,49 @@
 import axios from "axios";
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import "../../App.css";
 
-export default class Login extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-        userName:'',
-        password:''
+function Login() {
+  var [user, setuser] = useState({});
+  let history = useHistory();
+
+  var handleChange = (e) => {
+    var x = user;
+    x[e.target.name] = e.target.value;
+    console.log(x);
+    setuser(x);
+  };
+
+  var login = () => {
+    axios
+      .post("http://localhost:5000/api/login", user)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("session", JSON.stringify(res.data));
+        if (res.data !== "wrong username") {
+          history.push("/");
+        } else {
+          alert("Wrong user name or password");
         }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    this.login=this.login.bind(this)
-    }
-    username(e){
-    this.setState({userName:e.target.value})
-    }
-    password(e){
-        this.setState({password:e.target.value})
-    }
-    login(){
-        const userName=this.state.userName
-        const password=this.state.password
-   
-        axios.post('http://localhost:5000/api/login',{userName,password}).then(res=>{
-            console.log(res)
-            localStorage.setItem("session", JSON.stringify(res.data))
-        
-        }).catch(err=>{
-            console.log(err)
-        })
-    }
-
-
-    render(){
-        return(
-      <div>
-         <label htmlFor="">username<input type="text" onChange={this.username.bind(this)}/></label> 
-         <label htmlFor="">password <input type="password" onChange={this.password.bind(this)}/></label>
-         <button onClick={this.login}>login</button>
-      </div>
-        )
-    }
+  return (
+    <div>
+      <label htmlFor="">
+        username
+        <input name="userName" type="text" onChange={handleChange} />
+      </label>
+      <label htmlFor="">
+        password{" "}
+        <input name="password" type="password" onChange={handleChange} />
+      </label>
+      <button onClick={login}>login</button>
+    </div>
+  );
 }
+
+export default Login;

@@ -33,7 +33,7 @@ function Navbar() {
                         className="navbar-logo"
                         onClick={closeMobileMenu}
                     >
-                        Name of website
+                        Team five 
                         <i className="fab fa-typo3" />
                     </Link>
                     <div className="menu-icon" onClick={handleClick}>
@@ -51,11 +51,11 @@ function Navbar() {
                         </li>
                         <li className="nav-item">
                             <Link
-                                to="/services"
+                                to="/pannel"
                                 className="nav-links"
                                 onClick={closeMobileMenu}
                             >
-                                Services
+                               bascket
                             </Link>
                         </li>
                         <li className="nav-item">
@@ -65,6 +65,15 @@ function Navbar() {
                                 onClick={closeMobileMenu}
                             >
                                 Products
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link
+                                to="/login"
+                                className="nav-links"
+                                onClick={closeMobileMenu}
+                            >
+                                LOGIN
                             </Link>
                         </li>
 
@@ -78,10 +87,12 @@ function Navbar() {
                             </Link>
                         </li>
                         
+                        
                     </ul>
                     {button && (
                         <Button buttonStyle="btn--outline">SIGN UP</Button>
                     )}
+           
                 </div>
             </nav>
         </>
