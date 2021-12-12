@@ -1,4 +1,4 @@
-import React , {useState, useEffect}  from "react";
+import React, { useState, useEffect } from "react";
 
 import "./Cards.css";
 import CardItem from "./CardItem.jsx";
@@ -18,6 +18,7 @@ function Cards() {
     }).catch(err=>{console.log(err);})
 
 }
+console.log(games, "DATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa");
 /////check redering after addin a game
 
 // useEffect(() => {
@@ -33,22 +34,18 @@ function Cards() {
             <h1>Check out these EPIC GAMES!</h1>
             <div className="cards__container">
                 <div className="cards__wrapper">
-
-
-     {games.map((game,i)=>{
-
-   
-          return( <ul className="cards__items">
-          <CardItem
-              src={game.img}
-              text={game.gameName}
-              label={game.price}
-              path="/services"
-          />
-
-      </ul>)
-
-     })}
+                    {games.map((game, i) => {
+                        return (
+                            <ul className="cards__items">
+                                <CardItem
+                                    src={game.img}
+                                    text={game.gameName}
+                                    label={game.price}
+                                    path="/services"
+                                />
+                            </ul>
+                        );
+                    })}
                     <ul className="cards__items">
                         <CardItem
                             src="images/fortnite.jpg"

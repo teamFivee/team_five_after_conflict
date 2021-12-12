@@ -18,7 +18,7 @@ export default function Products() {
       console.log(games , "hooks data");
     }).catch(err=>{console.log(err)})
   }
-
+  console.log(games,"this data is from eefef  satate")
  var buy=(e)=>{
     console.log(games[e.target.name] , "buttin")
     var session = JSON.parse(localStorage.getItem("session"))[0]
@@ -31,7 +31,7 @@ export default function Products() {
     return (<div className="parent" >
        
 {games.map((game,i)=><ul className="cards__items" >
-
+   
        <CardItem
             key={i}
              src={game.gimg}

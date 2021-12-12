@@ -2,6 +2,7 @@ import React from "react";
 import "../App.css";
 import { Button } from "./Button.jsx";
 import "./HeroSection.css";
+import { Link } from "react-router-dom";
 
 function HeroSection() {
     return (
@@ -17,6 +18,7 @@ function HeroSection() {
                 >
                     Best Sellers
                 </Button>
+
                 <Button
                     className="btns"
                     buttonStyle="btn--primary"
