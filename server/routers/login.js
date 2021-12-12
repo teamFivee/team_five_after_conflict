@@ -10,10 +10,12 @@ router.route("/")
     var {userName , password}=req.body 
 
     db.query("select *  from users where userName=?",[userName],(err,result)=>{
-        // console.log(result[0].password);
-        // console.log(result[0].img);
+       
+      
           
-        if (result.length===0){res.json("wrong username")} 
+        if (result.length===0){
+            console.log(result) 
+            res.json("wrong username")  } 
         
         else{
 

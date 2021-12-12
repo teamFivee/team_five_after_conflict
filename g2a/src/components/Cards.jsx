@@ -7,22 +7,19 @@ import ret from "bluebird/js/release/util";
 function Cards() {
     var [games, setdata] = useState([]);
 
-    useEffect(() => {
-        fetchdata();
-    }, []);
+    useEffect(()=>fetchdata() ,[])
 
-    var fetchdata = () => {
-        axios
-            .get("http://localhost:5000/api/games")
-            .then(({ data }) => {
-                setdata(data);
-                console.log(games, "hooks data");
-            })
-            .catch((err) => {
-                console.log(err);
-            });
-    };
-    /////check redering after addin a game
+    var fetchdata=()=>{
+        axios.get("http://localhost:5000/api/games").then(({data})=>{
+       
+        setdata(data)
+        console.log(games ,"hooks data")
+        
+    }).catch(err=>{console.log(err);})
+
+}
+console.log(games, "DATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa");
+/////check redering after addin a game
 
     return (
         <div className="cards">

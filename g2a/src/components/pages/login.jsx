@@ -19,9 +19,10 @@ function Login() {
             .post("http://localhost:5000/api/login", user)
             .then((res) => {
                 console.log(res);
-                localStorage.setItem("session", JSON.stringify(res.data));
-                if (res.data !== "wrong username") {
+               
+                if (res.data !== "wrong password") {
                     history.push("/");
+                    localStorage.setItem("session", JSON.stringify(res.data));
                 } else {
                     alert("Wrong user neme or password");
                 }
@@ -53,7 +54,7 @@ function Login() {
                                             name="userName"
                                             type="text"
                                             onChange={handleChange}
-                                            type="email"
+                                          
                                             className="form-control form-control-lg"
                                         />
                                         <label className="form-label">

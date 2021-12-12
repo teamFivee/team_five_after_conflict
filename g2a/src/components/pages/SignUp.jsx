@@ -37,7 +37,7 @@ import "../../App.css";
         axios.post('http://localhost:5000/api/signup',user).then(response=>{
             if(response.data="user created successfully")
             {
-            //   history.push("/login");
+              history.push("/login");
             console.log(response)
             }
             else{
@@ -70,7 +70,7 @@ import "../../App.css";
                                             name="userName"
                                             type="name"
                                             onChange={handleChange}
-                                            type="email"
+                                     
                                             className="form-control form-control-lg"
                                         />
                                         <label className="form-label">
@@ -79,9 +79,11 @@ import "../../App.css";
                                     </div>
                                     <div className="form-outline form-white mb-4">
                                         <input
+                                            name ="Email"
                                             type="email"
                                             id="typeEmailX"
                                             className="form-control form-control-lg"
+                                            onChange={handleChange}
                                         />
                                         <label
                                             className="form-label"
@@ -92,6 +94,7 @@ import "../../App.css";
                                     </div>
                                     <div className="form-outline form-white mb-4">
                                         <input
+                                            onChange={handleChange}
                                             name="password"
                                             type="password"
                                             id="typePasswordX"
