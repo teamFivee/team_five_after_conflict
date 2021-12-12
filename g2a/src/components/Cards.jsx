@@ -1,47 +1,46 @@
-import React , {useState, useEffect}  from "react";
+import React, { useState, useEffect } from "react";
 
 import "./Cards.css";
 import CardItem from "./CardItem.jsx";
 import axios from "axios";
 import ret from "bluebird/js/release/util";
 function Cards() {
-  
-    var [games,setdata] = useState([]);
+    var [games, setdata] = useState([]);
 
-    useEffect(()=>{fetchdata();} ,[])
+    useEffect(() => {
+        fetchdata();
+    }, []);
 
-    var fetchdata=()=>{
-        axios.get("http://localhost:5000/api/games").then(({data})=>{
-       
-        setdata(data)
-        console.log(games ,"hooks data")
-        
-    }).catch(err=>{console.log(err);})
-
-}
-/////check redering after addin a game
+    var fetchdata = () => {
+        axios
+            .get("http://localhost:5000/api/games")
+            .then(({ data }) => {
+                setdata(data);
+                console.log(games, "hooks data");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+    /////check redering after addin a game
 
     return (
         <div className="cards">
             <h1>Check out these EPIC GAMES!</h1>
             <div className="cards__container">
                 <div className="cards__wrapper">
-
-
-     {games.map((game,i)=>{
-
-   
-          return( <ul className="cards__items">
-          <CardItem
-              src={game.img}
-              text={game.gameName}
-              label={game.price}
-              path="/services"
-          />
-
-      </ul>)
-
-     })}
+                    {games.map((game, i) => {
+                        return (
+                            <ul className="cards__items">
+                                <CardItem
+                                    src={game.img}
+                                    text={game.gameName}
+                                    label={game.price}
+                                    path="/services"
+                                />
+                            </ul>
+                        );
+                    })}
                     <ul className="cards__items">
                         <CardItem
                             src="images/fortnite.jpg"
