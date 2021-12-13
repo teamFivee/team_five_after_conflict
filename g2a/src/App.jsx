@@ -22,7 +22,7 @@ function App() {
                     <Route path='/addGame'  component={AddGame}/>
                     <Route path="/sign-up" component={SignUp} />
                     <Route path="/login"  component={Login} />
-                  
+                    {/* done */}
                 </Switch>
             </Router>
         </>
