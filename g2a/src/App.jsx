@@ -8,6 +8,7 @@ import Products from "./components/pages/Products.jsx";
 import SignUp from "./components/pages/SignUp.jsx";
 import Login from "./components/pages/login.jsx";
 import Panner from "./components/pages/panne.jsx" ;
+import Admin from "./components/admin/admin .jsx"
 function App() {
     return (
         <>
@@ -20,6 +21,7 @@ function App() {
                     <Route path="/products" component={Products} />
                     <Route path="/sign-up" component={SignUp} />
                     <Route path="/login"  component={Login} />
+                    <Route path="/admin"  component={Admin} />
                     
                     
                 </Switch>

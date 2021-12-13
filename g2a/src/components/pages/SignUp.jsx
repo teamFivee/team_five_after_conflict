@@ -41,7 +41,7 @@ import "../../App.css";
             console.log(response)
             }
             else{
-                 
+                 alert("error")
             }
         }).catch(err=>{
             console.log(err)
