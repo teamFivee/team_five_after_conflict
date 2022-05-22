@@ -23,17 +23,25 @@ var getId=()=> {
    }
 
    
-    return (<div className="parent">
+    return (<div className="myGrid">
         
   {panier.map((ele,i)=>
-        <ul>
-      
-         <h4>{ele.gameName}</h4>
-         <img src={ele.img}/>
-         <h4>{ele.price}DT</h4>
-         <h4>{ele.seller}</h4>
-         <img src ={ele.sellerImg} />
-         </ul>
+        <div className="card">
+             <div className="cardHeader">
+               <h4>{ele.gameName}</h4>
+             </div>
+             <div className="cardBody">
+              <img src={ele.img}/>
+             </div>
+             <div className="cardFooter">
+              <h4>{ele.price}DT</h4>
+              <h4>{ele.seller}</h4>
+              <img src ={ele.sellerImg} />
+             </div>
+        
+
+ 
+         </div>
   )}
         
     </div>);

@@ -25,3 +25,65 @@
 
     font-size: 100px;
 }
+
+.card{
+    width:80%;
+    height: 50%;
+    align-items: center;
+    justify-content: center;
+    ¨display:flex;
+    flex: column;
+}
+
+.cardHeader{
+    height:20%;
+    width:100%;
+    align-items: flex-start;
+    display:block;
+}
+.cardHeader p {
+    font-size:bold;
+    font-size:25;
+}
+.cardBody{
+    height:60%;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+
+}
+.cardBody img{
+    width:80%;
+    height:80%;
+}
+
+.cardFooter{
+    display:flex;
+    flex: row;
+    justify-content: center;
+    width:100%;
+    height:20%;
+}
+
+.cardFooter img{
+    height:50%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+
+
+
+.myGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2; }
+    .div2 { grid-area: 1 / 2 / 2 / 3; }
+    .div3 { grid-area: 1 / 3 / 2 / 4; }

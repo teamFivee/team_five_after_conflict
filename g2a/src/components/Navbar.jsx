@@ -6,7 +6,7 @@ import "./Navbar.css";
 function Navbar() {
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
-
+    const [userSession,setUsersession]=useState({})
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
     
@@ -20,7 +20,21 @@ function Navbar() {
 
     useEffect(() => {
         showButton();
+        getSessiom();
     }, []);
+
+
+    const getSessiom=()=>{
+    
+        if(localStorage.getItem("session"))
+        {
+            let user = JSON.parse(localStorage.getItem("session"))[0]
+            setUsersession(()=>user)
+        }
+        else{
+            setUsersession(()=>false)
+        }
+    }
 
     window.addEventListener("resize", showButton);
 
@@ -77,7 +91,7 @@ function Navbar() {
                                 Products
                             </Link>
                         </li>
-                        <li className="nav-item">
+                        {userSession?<div className="userAvatar"><img src={userSession.img}/> <p>{userSession.userName}</p> <p>{userSession.balance} DT</p> </div>:<><li className="nav-item">
                             <Link
                                 to="/login"
                                 className="nav-links"
@@ -85,7 +99,8 @@ function Navbar() {
                             >
                                 LOGIN
                             </Link>
-                        </li>
+                        </li></>}
+
                     </ul>
                     {button && (
                         <Button buttonStyle="btn--outline">SIGN UP</Button>

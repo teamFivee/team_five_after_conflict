@@ -18,12 +18,7 @@ function Cards() {
     }).catch(err=>{console.log(err);})
 
 }
-console.log(games, "DATAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaa");
-/////check redering after addin a game
 
-// useEffect(() => {
-//     console.log(games);
-//  }, [games]);
 
 
 

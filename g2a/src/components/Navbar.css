@@ -160,3 +160,33 @@
         transition: 250ms;
     }
 }
+
+
+.userAvatar{
+    height:100px;
+  aspect-ratio: 1/1;
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content: center;     
+    padding-left: 200px;
+    padding-right: 200px; 
+}
+
+
+
+.userAvatar img {
+ height:80%;
+ aspect-ratio: 1/1;
+ border-radius: 50%;
+
+}
+
+.userAvatar p {
+    font-weight: bold;
+    color: white;
+    font-size:150;
+    
+    padding-left: 20px;
+
+}
